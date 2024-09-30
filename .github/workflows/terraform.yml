@@ -65,6 +65,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActionsRole
+          aws-region: ${{ vars.AWS_REGION }}
       - name: Terragrunt init
         uses: gruntwork-io/terragrunt-action@v2
         with:
@@ -76,8 +81,3 @@ jobs:
         uses: hashicorp/setup-terraform@v3
       - name: Terraform apply
         run: terraform apply -auto-approve
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GithubActionsRole
-          aws-region: ${{ vars.AWS_REGION }}
