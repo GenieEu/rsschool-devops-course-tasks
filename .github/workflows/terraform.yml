@@ -59,6 +59,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/task_1' && github.event_name == 'push'
     needs: terraform-plan
+    permissions:
+      id-token: write  
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
