@@ -1,7 +1,3 @@
-Here's a README file for your Terraform setup with VPC, subnets, bastion host, NAT gateway, and a GitHub Actions workflow for deploying the infrastructure:
-
----
-
 # AWS Infrastructure Deployment with Terraform
 
 This project automates the provisioning of AWS infrastructure using Terraform. The infrastructure consists of a Virtual Private Cloud (VPC), public and private subnets, Internet Gateway, NAT Gateway, and a Bastion Host. Additionally, a GitHub Actions workflow is included to automate the deployment process via Terragrunt.
